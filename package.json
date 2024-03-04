@@ -1,24 +1,70 @@
 {
-  "name": "rn-pdf-reader-js",
-  "version": "4.1.1",
-  "description": "PDF reader for Expo",
-  "main": "node_modules/expo/AppEntry.js",
-  "types": "lib/index.d.ts",
-  "author": "Xavier Carpentier <xcapetir@gmail.com> (https://xaviercarpentier.com/)",
-  "license": "MIT",
-  "scripts": {
-    "start": "yarn config:dev && expo start -c",
-    "tsc": "node_modules/.bin/tsc --noEmit",
-    "bundle": "./scripts/gen_bundle_string.js",
-    "build": "yarn bundle && rm -rf lib/ && node_modules/.bin/tsc",
-    "config:dev": "json -I -f package.json -e 'this.main=\"node_modules/expo/AppEntry.js\"'",
-    "config:npm": "json -I -f package.json -e 'this.main=\"lib/index.js\"'",
-    "lint": "tslint --project .",
-    "verify": "yarn lint && yarn tsc && yarn build",
-    "prepublishOnly": "yarn verify && yarn config:npm",
-    "postpublish": "yarn config:dev",
-    "cleaning": "rm -rf node_modules && rm -f yarn.lock && yarn cache clean && yarn install && watchman watch-del-all && rm -fr $TMPDIR/react-*"
+  "_from": "@bildau/rn-pdf-reader",
+  "_id": "@bildau/rn-pdf-reader@4.2.7",
+  "_inBundle": false,
+  "_integrity": "sha512-hzdDHy6NmiIXAhotWd22BdnvLIFQpuX0M3idaNAuzLc11itHPK8uRWR58I4OWmx/RI9W7GyNesMZX3tSFUiaRA==",
+  "_location": "/@bildau/rn-pdf-reader",
+  "_phantomChildren": {
+    "base64-js": "1.5.1",
+    "ieee754": "1.2.1"
   },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@bildau/rn-pdf-reader",
+    "name": "@bildau/rn-pdf-reader",
+    "escapedName": "@bildau%2frn-pdf-reader",
+    "scope": "@bildau",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@bildau/rn-pdf-reader/-/rn-pdf-reader-4.2.7.tgz",
+  "_shasum": "2825f90b9ad66a2dd426b265ef0a6e4d5fb8f52d",
+  "_spec": "@bildau/rn-pdf-reader",
+  "_where": "/Users/ananthutp/work/TOI/Saudi-app/calman/mobile",
+  "author": {
+    "name": "Xavier Carpentier",
+    "email": "xcapetir@gmail.com",
+    "url": "https://xaviercarpentier.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/xcarpentier/rn-pdf-reader-js/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "buffer": "5.1.0",
+    "csstype": "2.6.8",
+    "js-base64": "2.4.5"
+  },
+  "deprecated": false,
+  "description": "PDF reader for Expo",
+  "devDependencies": {
+    "@types/js-base64": "2.3.1",
+    "@types/react": "~18.0.0",
+    "@types/react-dom": "~17.0.14",
+    "@types/react-native": "^0.69.8",
+    "babel-preset-expo": "~9.2.0",
+    "crypto": "1.0.1",
+    "expo": "^46.0.0",
+    "expo-constants": "~13.2.4",
+    "expo-file-system": "~14.1.0",
+    "json": "^9.0.6",
+    "react": "18.0.0",
+    "react-native": "0.69.5",
+    "react-native-webview": "11.23.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.6.3"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "homepage": "https://github.com/xcarpentier/rn-pdf-reader-js#readme",
   "keywords": [
     "React-Native",
     "PDF",
@@ -29,39 +75,34 @@
     "react-pdf",
     "expo"
   ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "@bildau/rn-pdf-reader",
+  "peerDependencies": {
+    "expo": ">= 42.0.x",
+    "expo-constants": ">= 9.x",
+    "expo-file-system": ">= 9.x",
+    "react": ">= 16.x",
+    "react-native": "*",
+    "react-native-webview": ">= 11.x"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xcarpentier/rn-pdf-reader-js.git"
+    "url": "git+https://github.com/stratoss/rn-pdf-reader-js.git"
   },
-  "peerDependencies": {
-    "expo": ">= 33.0.x < 41.0.x",
-    "expo-constants": ">= 5.0.0 < 9.x",
-    "expo-file-system": ">= 5.0.0 < 9.x",
-    "react": "16.x",
-    "react-native": "*",
-    "react-native-webview": ">= 7.0.5 < 12.x"
+  "scripts": {
+    "build": "yarn bundle && rm -rf lib/ && node_modules/.bin/tsc --noEmit false",
+    "bundle": "./scripts/gen_bundle_string.js",
+    "cleaning": "rm -rf node_modules && rm -f yarn.lock && yarn cache clean && yarn install && watchman watch-del-all && rm -fr $TMPDIR/react-*",
+    "config:dev": "json -I -f package.json -e 'this.main=\"node_modules/expo/AppEntry.js\"'",
+    "config:npm": "json -I -f package.json -e 'this.main=\"lib/index.js\"'",
+    "lint": "tslint --project .",
+    "postpublish": "yarn config:dev",
+    "prepublishOnly": "yarn verify && yarn config:npm",
+    "start": "yarn config:dev && expo start -c",
+    "tsc": "tsc --noEmit",
+    "verify": "yarn lint && yarn tsc && yarn build"
   },
-  "dependencies": {
-    "buffer": "5.1.0",
-    "csstype": "2.6.8",
-    "js-base64": "2.4.5"
-  },
-  "devDependencies": {
-    "@types/js-base64": "2.3.1",
-    "@types/react": "16.9.17",
-    "@types/react-dom": "16.9.4",
-    "@types/react-native": "0.60.28",
-    "babel-preset-expo": "^8.0.0",
-    "crypto": "1.0.1",
-    "expo": "^36.0.2",
-    "expo-constants": "~8.0.0",
-    "expo-file-system": "~8.0.0",
-    "json": "^9.0.6",
-    "react": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
-    "react-native-webview": "7.4.3",
-    "tslint": "^5.20.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "3.7.4"
-  }
+  "types": "lib/index.d.ts",
+  "version": "4.2.7"
 }
